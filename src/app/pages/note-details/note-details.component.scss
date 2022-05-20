@@ -3,3 +3,12 @@
     margin: auto;
     margin-top: 100px;
 }
+
+input, textarea{
+    &.ng-invalid.ng-touched{
+        border-color: red;
+        &.focus{
+            box-shadow: 0px 0px 0px 2px rgba(red, 1.5);
+        } 
+    }
+}
