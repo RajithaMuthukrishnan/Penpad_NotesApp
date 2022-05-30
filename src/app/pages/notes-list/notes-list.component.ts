@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Note } from 'src/app/shared/note.model';
 import { NotesService } from 'src/app/shared/notes.service';
 
@@ -16,6 +16,10 @@ export class NotesListComponent implements OnInit {
   ngOnInit(): void {
     // retrieve all notes form notes service
     this.notes = this.notesService.getAll();
+  }
+
+  deleteNote(id: number){
+    this.notesService.delete(id);
   }
 
 }

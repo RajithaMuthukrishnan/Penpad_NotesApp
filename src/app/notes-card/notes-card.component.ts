@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-notes-card',
@@ -9,6 +9,9 @@ export class NotesCardComponent implements OnInit {
 
   @Input() body!: string;
   @Input() title!: string;
+  @Input() link!: any;
+
+  @Output('delete') deleteEvent: EventEmitter<void> = new EventEmitter<void>();
 
   // title = "Testing title"
   // body = "Testing body"
@@ -16,6 +19,10 @@ export class NotesCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onXButtonClick(){
+    this.deleteEvent.emit();
   }
 
 }
